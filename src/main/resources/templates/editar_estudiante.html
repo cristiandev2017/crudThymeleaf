@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Actualizar estudiantes</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" th:href="@{/estudiantes}">Crud-Thymeleaf</a>
+        <div class="d-flex">
+            <a class="nav-link active" aria-current="page" href="#"> Opcion👍 </a>
+            <a class="nav-link active" aria-current="page" href="#"> Opcion👌 </a>
+        </div>
+    </div>
+</nav>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+            <h2 class="text-center">Actualizar Estudiante</h2>
+            <div class="card-body">
+                <form th:action="@{/estudiantes/{id}(id=${estudiante.id})}" th:object="${estudiante}" method="POST">
+                    <div class="form-group">
+                        <label>Nombre</label>
+                        <input type="text" name="nombre" th:field="*{nombre}" class="form-control" placeholder="Digite su nombre: " required />
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label>Apellido</label>
+                        <input type="text" name="apellido" th:field="*{apellido}" class="form-control" placeholder="Digite su apellido: " required />
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" name="email" th:field="*{email}" class="form-control" placeholder="Digite su email: " required />
+                    </div>
+                    <br>
+                    <div class="box-footer">
+                        <button class="btn btn-success">Editar</button>
+                    </div>
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>
